@@ -12,6 +12,7 @@ base.default_colorscheme = "tokyonight-night"
 -- define variables -----------------------------------------------------------
 local options = {
   opt = {
+    guifont = { "SauceCodePro Nerd Font:h12" },
     breakindent = true, -- Wrap indent to match  line start.
     clipboard = "unnamedplus", -- Connection to the system clipboard.
     cmdheight = 0, -- hide command line unless needed.
