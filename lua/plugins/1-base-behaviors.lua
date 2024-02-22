@@ -673,7 +673,6 @@ return {
   -- https://github.com/Zeioth/distroupdate.nvim
   {
     "Zeioth/distroupdate.nvim",
-    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = {
       "NvimChangelog",
