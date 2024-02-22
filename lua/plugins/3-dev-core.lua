@@ -154,6 +154,7 @@ return {
   -- Reliable jdtls support. Must go before lsp-config.
   {
     'nvim-java/nvim-java',
+    enabled = false,
     ft = { "java" },
     dependencies = {
       'nvim-java/lua-async-await',

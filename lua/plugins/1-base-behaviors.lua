@@ -42,7 +42,7 @@ return {
     "kevinhwang91/rnvimr",
     event = "VeryLazy",
     cmd = { "RnvimrToggle" },
-    enabled = not windows,
+    enabled = false,
     config = function(_, opts)
       -- vim.g.rnvimr_vanilla = 1            -- Often solves issues in your ranger config.
       vim.g.rnvimr_enable_picker = 1         -- Close rnvimr after choosing a file.
@@ -171,6 +171,7 @@ return {
   -- workarounds → https://github.com/akinsho/toggleterm.nvim/wiki/Mouse-support
   {
     "akinsho/toggleterm.nvim",
+    enabled = false,
     cmd = { "ToggleTerm", "TermExec" },
     opts = {
       highlights = {
@@ -235,6 +236,7 @@ return {
   -- It doesn't have ctrl-z so please always commit before using it.
   {
     "nvim-pack/nvim-spectre",
+    enabled = false,
     cmd = "Spectre",
     opts = {
       default = {
@@ -515,6 +517,7 @@ return {
   --  https://github.com/kevinhwang91/promise-async
   {
     "kevinhwang91/nvim-ufo",
+    enabled = false,
     event = { "User BaseFile" },
     dependencies = { "kevinhwang91/promise-async" },
     opts = {
@@ -568,6 +571,7 @@ return {
   --  https://github.com/folke/zen-mode.nvim
   {
     "folke/zen-mode.nvim",
+    enabled = false,
     cmd = "ZenMode",
   },
 
@@ -575,6 +579,7 @@ return {
   --  https://github.com/lambdalisue/suda.vim
   {
     "lambdalisue/suda.vim",
+    enabled = false,
     cmd = { "SudaRead", "SudaWrite" },
   },
 
@@ -593,6 +598,7 @@ return {
   --  https://github.com/smoka7/hop.nvim
   {
     "smoka7/hop.nvim",
+    enabled = false,
     cmd = { "HopWord" },
     opts = { keys = "etovxqpdygfblzhckisuran" },
     config = function(_, opts)
@@ -667,6 +673,7 @@ return {
   -- https://github.com/Zeioth/distroupdate.nvim
   {
     "Zeioth/distroupdate.nvim",
+    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = {
       "NvimChangelog",

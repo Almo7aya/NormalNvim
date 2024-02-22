@@ -238,6 +238,7 @@ return {
   --  https://github.com/echasnovski/mini.indentscope
   {
     "echasnovski/mini.indentscope",
+    enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       draw = { delay = 0, animation = function() return 0 end },
@@ -505,6 +506,7 @@ return {
   --  * Search results: We use a heirline component for this.
   {
     "folke/noice.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = function()
       local enable_conceal = false          -- Hide command text if true
@@ -596,6 +598,7 @@ return {
   --  https://github.com/petertriho/nvim-scrollbar
   {
     "petertriho/nvim-scrollbar",
+    enabled = false,
     event = "User BaseFile",
     opts = {
       handlers = {
@@ -620,6 +623,7 @@ return {
   --        disable it during the keybinding using vim.g.minianimate_disable = true
   {
     "echasnovski/mini.animate",
+    enabled = false,
     event = "User BaseFile",
     enabled = not android,
     opts = function()

@@ -137,7 +137,7 @@ return {
   --  	keepBackup = false
   {
     "tpope/vim-fugitive",
-    enabled = vim.fn.executable "git" == 1,
+    enabled = false,
     dependencies = { "tpope/vim-rhubarb" },
     cmd = {
       "Gvdiffsplit",
@@ -166,6 +166,7 @@ return {
   {
     "stevearc/aerial.nvim",
     event = "VeryLazy",
+    enabled = false,
     cmd = {
       "AerialToggle",
       "AerialOpen",
@@ -206,6 +207,7 @@ return {
   --  https://github.com/Zeioth/dooku.nvim
   {
     "Zeioth/dooku.nvim",
+    enabled = false,
     cmd = {
       "DookuGenerate",
       "DookuOpen",
@@ -219,6 +221,7 @@ return {
   --  Note: If you change the build command, wipe ~/.local/data/nvim/lazy
   {
     "iamcco/markdown-preview.nvim",
+    enabled = false,
     ft = "markdown",
     cmd = {
       "MarkdownPreview",
@@ -233,6 +236,7 @@ return {
   --  Important: Make sure you have yarn in your PATH before running markmap.
   {
     "Zeioth/markmap.nvim",
+    enabled = false,
     build = "yarn global add markmap-cli",
     cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
     config = function(_, opts) require("markmap").setup(opts) end,
@@ -247,6 +251,7 @@ return {
   --        OPENAI_API_KEY="my_key_here"
   {
     "dense-analysis/neural",
+    enabled = false,
     cmd = { "Neural" },
     config = function()
       require("neural").setup {
@@ -299,6 +304,7 @@ return {
   --  https://github.com/Zeioth/compiler.nvim
   {
     "Zeioth/compiler.nvim",
+    enabled = false,
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
     dependencies = { "stevearc/overseer.nvim" },
     opts = {},
@@ -308,6 +314,7 @@ return {
   --  https://github.com/stevearc/overseer.nvim
   {
     "stevearc/overseer.nvim",
+    enabled = false,
     cmd = { "CompilerOpen", "CompilerToggleResults" },
     opts = {
       -- Tasks are disposed 5 minutes after running to free resources.
@@ -340,7 +347,7 @@ return {
   --  We currently ship most of them with nvim.
   {
     "mfussenegger/nvim-dap",
-    enabled = vim.fn.has "win32" == 0,
+    enabled = false,
     event = "User BaseFile",
     config = function(_, opts)
       local dap = require("dap")
@@ -717,6 +724,7 @@ return {
   --    :TestNodejsE2e -- Run the e2e tests/suite for this nodejs project.
   {
     "nvim-neotest/neotest",
+    enabled = false,
     cmd = { "Neotest" },
     dependencies = {
       "sidlatau/neotest-dart",
@@ -774,6 +782,7 @@ return {
   --  https://github.com/andythigpen/nvim-coverage/blob/main/doc/nvim-coverage.txt
   {
     "andythigpen/nvim-coverage",
+    enabled = false,
     cmd = {
       "Coverage",
       "CoverageLoad",
@@ -794,6 +803,7 @@ return {
   -- This plugin is necessary for using <C-]> (go to ctag).
   {
     "skywind3000/gutentags_plus",
+    enabled = false,
     ft = { "c", "cpp" },
     dependencies = { "ludovicchabant/vim-gutentags" },
     init = function()

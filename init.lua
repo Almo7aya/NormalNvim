@@ -1,7 +1,7 @@
 -- Source config files (Plugins are loaded in the file ./lua/base/2-lazy)
 
 -- Compile lua to bytecode if the nvim version supports it.
-if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
+if vim.loader then vim.loader.enable() end
 
 -- Source config files
 for _, source in ipairs {
