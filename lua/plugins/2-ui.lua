@@ -22,8 +22,8 @@
 --       -> which-key                   [on-screen keybinding]
 
 local utils = require "base.utils"
-local windows = vim.fn.has('win32') == 1             -- true if on windows
-local android = vim.fn.isdirectory('/system') == 1   -- true if on android
+local windows = vim.fn.has "win32" == 1           -- true if on windows
+local android = vim.fn.isdirectory "/system" == 1 -- true if on android
 
 return {
 
@@ -38,7 +38,7 @@ return {
         comments = { italic = true },
         keywords = { italic = true },
       },
-    }
+    },
   },
 
   --  astrotheme [theme]
@@ -119,37 +119,40 @@ return {
       --   [[ \/_/\/_/\/__/    \/_/\/_/\/_/\/_/]],
       -- }
 
-      if android then dashboard.section.header.val = {
-        [[         __                ]],
-        [[ __  __ /\_\    ___ ___    ]],
-        [[/\ \/\ \\/\ \ /' __` __`\  ]],
-        [[\ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-        [[ \ \___/  \ \_\ \_\ \_\ \_\]],
-        [[  \/__/    \/_/\/_/\/_/\/_/]],
-       }
-      else dashboard.section.header.val = {
-[[888b      88                                                           88]],
-[[8888b     88                                                           88]],
-[[88 `8b    88                                                           88]],
-[[88  `8b   88   ,adPPYba,   8b,dPPYba,  88,dPYba,,adPYba,   ,adPPYYba,  88]],
-[[88   `8b  88  a8"     "8a  88P'   "Y8  88P'   "88"    "8a  ""     `Y8  88]],
-[[88    `8b 88  8b       d8  88          88      88      88  ,adPPPPP88  88]],
-[[88     `8888  "8a,   ,a8"  88          88      88      88  88,    ,88  88]],
-[[88      `888   `"YbbdP"'   88          88      88      88  `"8bbdP"Y8  88]],
-                 [[                                    __                ]],
-                 [[                      ___   __  __ /\_\    ___ ___    ]],
-                 [[                    /' _ `\/\ \/\ \\/\ \ /' __` __`\  ]],
-                 [[                    /\ \/\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-                 [[                    \ \_\ \_\ \___/  \ \_\ \_\ \_\ \_\]],
-                 [[                     \/_/\/_/\/__/    \/_/\/_/\/_/\/_/]],
-      }
+      if android then
+        dashboard.section.header.val = {
+          [[         __                ]],
+          [[ __  __ /\_\    ___ ___    ]],
+          [[/\ \/\ \\/\ \ /' __` __`\  ]],
+          [[\ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+          [[ \ \___/  \ \_\ \_\ \_\ \_\]],
+          [[  \/__/    \/_/\/_/\/_/\/_/]],
+        }
+      else
+        dashboard.section.header.val = {
+          [[888b      88                                                           88]],
+          [[8888b     88                                                           88]],
+          [[88 `8b    88                                                           88]],
+          [[88  `8b   88   ,adPPYba,   8b,dPPYba,  88,dPYba,,adPYba,   ,adPPYYba,  88]],
+          [[88   `8b  88  a8"     "8a  88P'   "Y8  88P'   "88"    "8a  ""     `Y8  88]],
+          [[88    `8b 88  8b       d8  88          88      88      88  ,adPPPPP88  88]],
+          [[88     `8888  "8a,   ,a8"  88          88      88      88  88,    ,88  88]],
+          [[88      `888   `"YbbdP"'   88          88      88      88  `"8bbdP"Y8  88]],
+          [[                                    __                ]],
+          [[                      ___   __  __ /\_\    ___ ___    ]],
+          [[                    /' _ `\/\ \/\ \\/\ \ /' __` __`\  ]],
+          [[                    /\ \/\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+          [[                    \ \_\ \_\ \___/  \ \_\ \_\ \_\ \_\]],
+          [[                     \/_/\/_/\/__/    \/_/\/_/\/_/\/_/]],
+        }
       end
 
       dashboard.section.header.opts.hl = "DashboardHeader"
       vim.cmd "highlight DashboardHeader guifg=#F7778F"
 
       -- If on windows, don't show the 'ranger' button
-      local ranger_button = dashboard.button("r", "🐍 Ranger  ", "<cmd>RnvimrToggle<CR>")
+      local ranger_button =
+          dashboard.button("r", "🐍 Ranger  ", "<cmd>RnvimrToggle<CR>")
       if windows then ranger_button = nil end
 
       -- Buttons
@@ -265,14 +268,14 @@ return {
             "notify",
             "startify",
             "toggleterm",
-            "Trouble"
+            "Trouble",
           }
           if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
             vim.b.miniindentscope_disable = true
           end
         end,
       })
-    end
+    end,
   },
 
   -- heirline-components.nvim [ui components]
@@ -281,8 +284,8 @@ return {
   {
     "zeioth/heirline-components.nvim",
     opts = {
-      icons = require("base.icons.nerd_font")
-    }
+      icons = require "base.icons.nerd_font",
+    },
   },
 
   --  heirline [ui components]
@@ -299,10 +302,17 @@ return {
       return {
         opts = {
           disable_winbar_cb = function(args) -- make the breadcrumbs bar inactive when...
-            local is_disabled = not require("base.utils.buffer").is_valid(args.buf) or
-            lib.condition.buffer_matches({
+            local is_disabled = not require("base.utils.buffer").is_valid(
+              args.buf
+            ) or lib.condition.buffer_matches({
               buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-              filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
+              filetype = {
+                "NvimTree",
+                "neo%-tree",
+                "dashboard",
+                "Outline",
+                "aerial",
+              },
             }, args.buf)
             return is_disabled
           end,
@@ -311,13 +321,15 @@ return {
           lib.component.tabline_conditional_padding(),
           lib.component.tabline_buffers(),
           lib.component.fill { hl = { bg = "tabline_bg" } },
-          lib.component.tabline_tabpages()
+          lib.component.tabline_tabpages(),
         },
         winbar = { -- UI breadcrumbs bar
           init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
           fallthrough = false,
           lib.component.breadcrumbs_when_inactive(),
-          lib.component.breadcrumbs { hl = lib.hl.get_attributes("winbar", true) },
+          lib.component.breadcrumbs {
+            hl = lib.hl.get_attributes("winbar", true),
+          },
         },
         statuscolumn = { -- UI left column
           init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
@@ -490,7 +502,7 @@ return {
       )
     end,
     opts = {
-      input = { default_prompt = "➤ "},
+      input = { default_prompt = "➤ " },
       select = { backend = { "telescope", "builtin" } },
     },
   },
@@ -514,15 +526,15 @@ return {
         presets = { bottom_search = true }, -- The kind of popup used for /
         cmdline = {
           view = "cmdline",                 -- The kind of popup used for :
-          format= {
-            cmdline =     { conceal = enable_conceal },
+          format = {
+            cmdline = { conceal = enable_conceal },
             search_down = { conceal = enable_conceal },
-            search_up =   { conceal = enable_conceal },
-            filter =      { conceal = enable_conceal },
-            lua =         { conceal = enable_conceal },
-            help =        { conceal = enable_conceal },
-            input =       { conceal = enable_conceal },
-          }
+            search_up = { conceal = enable_conceal },
+            filter = { conceal = enable_conceal },
+            lua = { conceal = enable_conceal },
+            help = { conceal = enable_conceal },
+            input = { conceal = enable_conceal },
+          },
         },
 
         -- Disable every other noice feature
@@ -535,7 +547,7 @@ return {
           smart_move = { enabled = false },
         },
       }
-    end
+    end,
   },
 
   --  UI icons [icons]
@@ -589,9 +601,7 @@ return {
       menu = {},
     },
     enabled = vim.g.icons_enabled,
-    config = function(_, opts)
-      require("lspkind").init(opts)
-    end,
+    config = function(_, opts) require("lspkind").init(opts) end,
   },
 
   --  nvim-scrollbar [scrollbar]
@@ -625,7 +635,6 @@ return {
     "echasnovski/mini.animate",
     enabled = false,
     event = "User BaseFile",
-    enabled = not android,
     opts = function()
       -- don't use animate when scrolling with the mouse
       local mouse_scrolled = false
@@ -705,5 +714,8 @@ return {
     end,
   },
 
-
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+  },
 }

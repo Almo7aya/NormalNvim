@@ -111,6 +111,7 @@ return {
     event = "User BaseGitFile",
     opts = {
       max_file_length = vim.g.big_file.lines,
+      current_line_blame = true,
       signs = {
         add = { text = get_icon "GitSign" },
         change = { text = get_icon "GitSign" },

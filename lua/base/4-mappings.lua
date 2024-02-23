@@ -298,13 +298,13 @@ maps.n["<leader>ba"] = {
   function() vim.cmd "wa" end,
   desc = "Write all changed buffers",
 }
-maps.n["]b"] = {
+maps.n["K"] = {
   function()
     require("base.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
   end,
   desc = "Next buffer",
 }
-maps.n["[b"] = {
+maps.n["J"] = {
   function()
     require("base.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1))
   end,

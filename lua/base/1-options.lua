@@ -7,11 +7,21 @@
 _G.base = {}
 
 -- Theme
-base.default_colorscheme = "tokyonight-night"
+base.default_colorscheme = "gruvbox-material"
 
 -- define variables -----------------------------------------------------------
 local options = {
   opt = {
+    listchars = {
+      space = " ",
+      eol = " ",
+      trail = "~",
+      extends = ">",
+      precedes = "<",
+      tab = "->",
+    },
+    background = "dark",
+    list = true,
     guifont = { "SauceCodePro Nerd Font:h12" },
     breakindent = true, -- Wrap indent to match  line start.
     clipboard = "unnamedplus", -- Connection to the system clipboard.
@@ -39,7 +49,7 @@ local options = {
     showtabline = 2, -- always display tabline.
     signcolumn = "yes", -- Always show the sign column.
     smartcase = true, -- Case sensitivie searching.
-    smartindent = false, -- Smarter autoindentation.
+    smartindent = true, -- Smarter autoindentation.
     splitbelow = true, -- Splitting a new window below the current one.
     splitright = true, -- Splitting a new window at the right of the current one.
     tabstop = 2, -- Number of space in a tab.
@@ -55,7 +65,7 @@ local options = {
     undodir = vim.fn.stdpath "data" .. "/undodir", -- Chooses where to store the undodir.
     history = 1000, -- Number of commands to remember in a history table (per buffer).
     swapfile = false, -- Ask what state to recover when opening a file that was not saved.
-    wrap = true, -- Disable wrapping of lines longer than the width of window.
+    wrap = false, -- Disable wrapping of lines longer than the width of window.
     colorcolumn = "80", -- PEP8 like character limit vertical bar.
     mousescroll = "ver:1,hor:0", -- Disables hozirontal scroll in neovim.
     guicursor = "n:blinkon200,i-ci-ve:ver25", -- Enable cursor blink.
@@ -65,6 +75,10 @@ local options = {
     selection = "old", -- Don't select the newline symbol when using <End> on visual mode.
   },
   g = {
+    background = "dark",
+    gruvbox_material_background = "hard",
+    gruvbox_material_better_performance = 1,
+
     mapleader = " ", -- Set leader key.
     maplocalleader = ",", -- Set default local leader key.
     big_file = { size = 1024 * 100, lines = 10000 }, -- For files bigger than this, disable 'treesitter'.

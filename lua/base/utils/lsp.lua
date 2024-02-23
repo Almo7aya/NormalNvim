@@ -267,7 +267,7 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.supports_method "textDocument/hover" then
-    lsp_mappings.n["<leader>lh"] = {
+    lsp_mappings.n["H"] = {
       function() vim.lsp.buf.hover() end,
       desc = "Hover help",
     }
